@@ -1,0 +1,4 @@
+Celery Worker: celery -A celery_worker.celery_app worker --loglevel=info
+Celery Beat: celery -A celery_worker.celery_app beat --loglevel=info
+Flask App: python3 app.py
+Mailhog: ~/go/bin/MailHog
