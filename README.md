@@ -1,161 +1,155 @@
-🏠 Household Service App v2
+# 🏠 Household Service App v2
 
-A full-stack household service booking and management platform that connects customers with service professionals through a structured, role-based workflow. The system supports service discovery, bookings, status tracking, and asynchronous background processing.
+A full-stack household service booking and management platform that connects customers with service professionals through a structured, role-based workflow. The application is designed to simulate a real-world service ecosystem with asynchronous backend processing and scalable architecture.
 
-📌 Overview
+---
 
-The Household Service App enables users to book household services such as plumbing, electrical work, cleaning, and repairs. It is designed with multiple user roles, clear service workflows, and asynchronous backend processing to simulate a real-world service platform.
+## 📌 Overview
 
-This project focuses on backend engineering, system design, and workflow orchestration, rather than just UI.
+**Household Service App v2** allows users to discover and book household services such as plumbing, electrical work, cleaning, and repairs.  
+The system supports multiple user roles, clear booking workflows, and background task execution to ensure responsiveness and reliability.
 
-✨ Key Features
-👥 Multi-Role System
+This project focuses strongly on **backend engineering, system design, workflow orchestration, and scalability**, rather than only UI.
 
-Customer
+---
 
-Browse available services
+## ✨ Key Features
 
-Create service requests
+### 👥 Multi-Role System
 
-Track booking history and status
+#### 👤 Customer
+- Browse available household services  
+- Create service booking requests  
+- Track booking status and history  
 
-Service Provider
+#### 🧑‍🔧 Service Provider
+- View assigned service requests  
+- Accept or reject bookings  
+- Update service progress and completion status  
 
-View assigned bookings
+#### 🛠️ Admin
+- Manage users and services  
+- Monitor platform activity and bookings  
 
-Accept or reject service requests
+---
 
-Update service completion status
+## 🔁 Booking Workflow
 
-Admin
+1. Customer selects a service and submits a booking request  
+2. Backend stores the request with an initial status  
+3. Service provider reviews and responds to the request  
+4. Booking status updates throughout the service lifecycle  
 
-Manage users and services
+---
 
-Monitor system activity and bookings
+## ⚙️ Asynchronous Processing
 
-🔁 Booking Workflow
+- Background tasks (e.g., notifications, delayed operations) handled using **Celery**
+- **Redis** used as a message broker
+- Improves system responsiveness and scalability
 
-Customer selects a service and submits a booking request
+---
 
-Backend stores request with initial status
+## 🧠 Backend Architecture
 
-Service provider responds to the request
+- REST-based backend for authentication, business logic, and workflows  
+- Clear separation of concerns between:
+  - API routes
+  - Database models
+  - Background workers
+- Easily extendable for new services and features
 
-Booking status updates throughout the service lifecycle
+---
 
-⚙️ Asynchronous Processing
+## 🛠️ Tech Stack
 
-Background tasks (such as notifications or delayed processing) handled using Celery
+### Backend
+- **Python**
+- **Flask** – Backend framework
+- **Celery** – Background task processing
+- **Redis** – Message broker
+- **SQL Database** – Persistent storage
+- **REST APIs**
 
-Redis used as a message broker
+### Frontend
+- HTML, CSS, JavaScript  
+- Dynamic templates for user interaction  
 
-Improves responsiveness and scalability of the application
+### Tools & Practices
+- Role-based access control  
+- Modular and maintainable code structure  
+- Asynchronous task queues  
+- Scalable service-oriented design  
 
-🧠 Backend Architecture
+---
 
-REST-based backend handling authentication, business logic, and workflows
 
-Clear separation of concerns between API routes, database models, and background workers
-
-Designed to be easily extendable for new services and features
-
-🛠️ Tech Stack
-Backend
-
-Python
-
-Flask – backend framework
-
-Celery – background task processing
-
-Redis – message broker
-
-SQL Database – persistent storage
-
-REST APIs
-
-Frontend
-
-HTML, CSS, JavaScript
-
-Dynamic templates for user interaction
-
-Tools & Practices
-
-Role-based access control
-
-Modular code structure
-
-Asynchronous task queues
-
-Scalable service design
-
-📂 Project Structure (High-Level)
 Household_service_app-v2/
 │
 ├── backend/
-│   ├── app.py              # Main Flask application
-│   ├── models.py           # Database models
-│   ├── routes/             # API routes
-│   ├── celery_worker.py    # Background task worker
-│   └── requirements.txt
+│ ├── app.py # Main Flask application
+│ ├── models.py # Database models
+│ ├── routes/ # API routes
+│ ├── celery_worker.py # Background task worker
+│ └── requirements.txt
 │
 ├── frontend/
-│   ├── templates/          # HTML templates
-│   ├── static/             # CSS & JavaScript
+│ ├── templates/ # HTML templates
+│ └── static/ # CSS & JavaScript
 │
 ├── README.md
 └── .env.example
 
-🚀 Getting Started
-Prerequisites
 
-Python 3.x
+---
 
-Redis
+## 🚀 Getting Started
 
-Virtual environment (recommended)
+### Prerequisites
+- Python 3.x  
+- Redis  
+- Virtual environment (recommended)
 
-Installation
-# Clone the repository
+---
+
+### Installation
+
+#### Clone the repository
+```bash
 git clone https://github.com/saritakumari23/Household_service_app-v2.git
 cd Household_service_app-v2
 
-# Create virtual environment
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-
-# Install dependencies
+source venv/bin/activate     # Linux / macOS
+venv\Scripts\activate        # Windows
 pip install -r backend/requirements.txt
-
-Run the Application
-# Start Redis server
 redis-server
-
-# Start Flask backend
 python backend/app.py
-
-# Start Celery worker
 celery -A backend.celery_worker worker --loglevel=info
+
 
 📈 What This Project Demonstrates
 
-Full-stack development with real-world workflows
+Full-stack development with real-world service workflows
 
-Multi-role access control and booking logic
+Multi-role access control and booking lifecycle management
 
 Asynchronous backend task handling
 
 Clean system design and modular architecture
 
-Readiness for scaling into a production service platform
+Readiness for scaling into a production-grade platform
 
 🌱 Future Improvements
 
 Payment gateway integration
 
-Real-time notifications
+Real-time notifications (WebSockets)
 
 Service provider rating & review system
 
-Deployment with Docker & cloud services
+Dockerization and cloud deployment
+
+
+## 📂 Project Structure (High-Level)
+
